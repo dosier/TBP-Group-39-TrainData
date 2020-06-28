@@ -2,9 +2,9 @@ function training_data_generator()
 
     global m0 m1 m2
     
-    m0 = 5.0;
-    m1 = 3.0;
-    m2 = 4.0;
+    m0 = 1.0;
+    m1 = 1.0;
+    m2 = 1.0;
     
     t_initial = 0.0;
     t_final = 10.0;
@@ -13,13 +13,13 @@ function training_data_generator()
     randomX = 1.*rand(10000,1) + -1.0;
     randomY = 1.*rand(10000,1) + -0.5;
         
-    for testIndex=1:10
+    for testIndex=1:10000
         
         x2=randomX(testIndex);
         y2=randomY(testIndex);
         
         x_initial = [ 1.0;  0.0;  0.0;  0.0;
-                      1.0;  3.0;  0.0;  0.0;
+                      x2;  y2;  0.0;  0.0;
                      -1.0-x2; -1.0-y2;  0.0;  0.0 ];
 
         options = odeset ( 'RelTol', 1.0e-10, 'AbsTol', 1.0E-10 );
